@@ -12,7 +12,7 @@ function ComparePage() {
   const [character2, setCharacter2] = useState<Character | null>(null);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background px-4 md:px-0">
       <div className="max-w-6xl mx-auto py-8">
         {/* Header */}
         <div className="text-center mb-8">
