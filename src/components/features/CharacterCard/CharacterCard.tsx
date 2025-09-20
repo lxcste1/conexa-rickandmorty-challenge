@@ -10,14 +10,25 @@ import Image from "next/image";
 type CharacterCardProps = {
   character: Character;
   isSelected?: boolean;
-  onSelect: (character: Character) => void;
+  onSelect?: (character: Character) => void;
+  className?: string;
 } & Partial<StatusVariantsProps>;
 
 function CharacterCard({
   character,
   isSelected,
   onSelect,
+  className,
 }: CharacterCardProps) {
+  const hasLink = Boolean(onSelect);
+
+  const containerClassNames = cx(
+    "transition-all duration-200 border-0",
+    isSelected ? "ring-2 ring-primary shadow-lg" : "",
+    hasLink && "cursor-pointer hover:shadow-md",
+    className
+  );
+
   const statusClassNames = cx(
     "absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-white",
     statusVariants({ status: character.status })
@@ -30,10 +41,8 @@ function CharacterCard({
 
   return (
     <Card
-      className={`transition-all duration-200 hover:shadow-md border-0 cursor-pointer ${
-        isSelected ? "ring-2 ring-primary shadow-lg" : ""
-      }`}
-      onClick={() => onSelect(character)}
+      className={containerClassNames}
+      onClick={() => onSelect && onSelect(character)}
     >
       <CardContent className="p-4">
         <div className="flex items-center space-x-4">

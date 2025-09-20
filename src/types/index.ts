@@ -51,3 +51,5 @@ export type LocationType = {
   name: string;
   url: string;
 };
+
+export type EpisodesKind = "character1" | "shared" | "character2";
