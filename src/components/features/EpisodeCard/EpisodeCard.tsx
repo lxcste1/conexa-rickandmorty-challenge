@@ -1,4 +1,5 @@
 import React from "react";
+import { cx } from "class-variance-authority";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Users } from "lucide-react";
@@ -6,13 +7,19 @@ import { Episode } from "@/types";
 
 type EpisodeCardProps = {
   episode: Episode;
+  className?: string;
 };
 
-function EpisodeCard({ episode }: EpisodeCardProps) {
+function EpisodeCard({ episode, className }: EpisodeCardProps) {
   const { name, air_date, episode: episodeCode, characters } = episode;
 
+  const containerClassNames = cx(
+    "transition-all duration-200 hover:shadow-md border-0 gap-0 py-3",
+    className
+  );
+
   return (
-    <Card className="transition-all duration-200 hover:shadow-md border-0 gap-0 py-3">
+    <Card className={containerClassNames}>
       <CardHeader className="gap-0">
         <div className="flex items-start justify-between">
           <CardTitle
