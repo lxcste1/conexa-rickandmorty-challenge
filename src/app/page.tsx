@@ -34,7 +34,7 @@ export default async function Home() {
   );
 
   return (
-    <div className="font-sans min-h-screen">
+    <div className="min-h-screen">
       <main>
         <h1>Conexa Challenge - Esta va a ser la página principal</h1>
       </main>
