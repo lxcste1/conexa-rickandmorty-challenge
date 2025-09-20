@@ -40,7 +40,7 @@ export function CharacterList({
     return (
       <div className="space-y-4 px-2 md:px-0">
         <h2 className="text-xl font-bold text-foreground">{title}</h2>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid md:grid-cols-2 gap-2">
           {Array.from({ length: 6 }).map((_, i) => (
             <div key={i} className="m-1">
               <Skeleton className="h-[144px] bg-white animate-pulse rounded-xl md:mr-2.5" />
@@ -89,7 +89,7 @@ export function CharacterList({
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 max-h-[500px] overflow-y-auto pr-0 md:pr-2.5">
+      <div className="grid md:grid-cols-2 gap-2 max-h-[500px] overflow-y-auto pr-0 md:pr-2.5">
         {characters.map((character) => (
           <CharacterCard
             key={character.id}
