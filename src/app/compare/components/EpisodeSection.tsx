@@ -44,7 +44,7 @@ export function EpisodeSection({ title, character1, character2, type }: Props) {
 
   if (loading) {
     return (
-      <div className="space-y-4">
+      <div className="flex flex-col space-y-4">
         <h3 className="text-md font-semibold text-foreground">{title}</h3>
         <div className="grid gap-3">
           {Array.from({ length: 3 }).map((_, i) => (
@@ -59,21 +59,29 @@ export function EpisodeSection({ title, character1, character2, type }: Props) {
 
   if (error) {
     return (
-      <div className="space-y-4">
+      <div className="flex flex-col space-y-4">
         <h3 className="text-md font-semibold text-foreground">{title}</h3>
         <div className="text-center py-8 text-red-500">
-          Failed to load episodes.
+          <div className="m-1">
+            <Card className="flex items-center justify-center text-center p-0 text-muted-foreground border-0 h-[62px]">
+              Failed to load episodes.
+            </Card>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col space-y-4">
       <h3 className="text-md font-semibold text-foreground">{title}</h3>
       {episodes.length === 0 ? (
-        <div className="text-center py-8 text-muted-foreground">
-          No episodes found for this selection
+        <div className="text-center text-muted-foreground">
+          <div className="m-1">
+            <Card className="flex items-center justify-center text-center p-0 text-muted-foreground border-0 h-[62px]">
+              No episodes found for this selection
+            </Card>
+          </div>
         </div>
       ) : (
         <div className="grid gap-3 max-h-80 overflow-y-auto md:pr-2.5">
