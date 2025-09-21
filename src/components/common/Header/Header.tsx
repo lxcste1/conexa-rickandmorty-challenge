@@ -18,6 +18,7 @@ function Header() {
             alt="logo"
             width={230}
             height={70}
+            priority
           />
           <span className="font-bold text-sm">Conexa Challenge</span>
         </Link>

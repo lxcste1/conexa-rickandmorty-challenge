@@ -22,18 +22,22 @@ function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="text-lg px-8">
+              <Button
+                asChild
+                size="lg"
+                className="text-lg text-secondary-foreground px-8 bg-secondary hover:bg-secondary/80"
+              >
                 <Link href="/compare">Start Comparing Characters</Link>
               </Button>
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">800+</div>
+                <div className="text-2xl font-bold text-secondary">800+</div>
                 <div className="text-sm text-muted-foreground">Characters</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-secondary">50+</div>
+                <div className="text-2xl font-bold text-foreground">50+</div>
                 <div className="text-sm text-muted-foreground">Episodes</div>
               </div>
               <div className="text-center">
@@ -52,6 +56,8 @@ function Hero() {
                 className="w-full max-w-md lg:max-w-lg h-auto animate-pulse"
                 width={840}
                 height={764}
+                priority
+                fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
             </div>
