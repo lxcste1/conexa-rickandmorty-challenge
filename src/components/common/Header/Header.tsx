@@ -1,18 +1,13 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { Langs } from "@/types";
 
-function Header() {
-  const path = usePathname();
-  const isComparePage = path === "/compare";
-
+function Header({ lang }: { lang: Langs }) {
   return (
-    <header className="bg-accent py-4 shadow-md">
+    <header className="bg-accent py-4 shadow-lg">
       <div className="flex justify-center items-center max-w-5xl mx-auto">
-        <Link className="flex flex-col items-center" href="/">
+        <Link className="flex flex-col items-center" href={`/${lang}`}>
           <Image
             src="/rickandmorty-logo.png"
             alt="logo"

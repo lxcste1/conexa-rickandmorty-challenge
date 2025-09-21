@@ -53,3 +53,6 @@ export type LocationType = {
 };
 
 export type EpisodesKind = "character1" | "shared" | "character2";
+
+export type Dictionary = typeof import("@/app/[lang]/dictionaries/es.json");
+export type Langs = "en" | "es";

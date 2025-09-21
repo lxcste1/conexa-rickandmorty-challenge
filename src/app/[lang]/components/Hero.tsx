@@ -1,9 +1,14 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { getDictionary } from "../dictionaries";
+import HeroTitle from "./HeroTitle";
+import { Langs } from "@/types";
 
-function Hero() {
+async function Hero({ lang }: { lang: Langs }) {
+  const dict = await getDictionary(lang);
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/10 py-16 lg:py-20">
       <div className="max-w-5xl mx-auto px-4 md:px-0">
@@ -11,13 +16,9 @@ function Hero() {
           {/* Text Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground text-balance">
-                Explore the <span className="text-primary">Rick & Morty</span>{" "}
-                Universe
-              </h1>
+              <HeroTitle lang={lang} />
               <p className="text-lg lg:text-xl text-muted-foreground text-pretty max-w-lg">
-                Compare characters, discover shared episodes, and dive deep into
-                the multiverse of Rick and Morty.
+                {dict.hero.description}
               </p>
             </div>
 
@@ -27,22 +28,34 @@ function Hero() {
                 size="lg"
                 className="text-lg text-secondary-foreground px-8 bg-secondary hover:bg-secondary/80"
               >
-                <Link href="/compare">Start Comparing Characters</Link>
+                <Link href={`/${lang}/compare`}>{dict.hero.callToAction}</Link>
               </Button>
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-secondary">800+</div>
-                <div className="text-sm text-muted-foreground">Characters</div>
+                <div className="text-2xl font-bold text-secondary">
+                  {dict.hero.characteristics.characterNum}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {dict.hero.characteristics.character}
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-foreground">50+</div>
-                <div className="text-sm text-muted-foreground">Episodes</div>
+                <div className="text-2xl font-bold text-foreground">
+                  {dict.hero.characteristics.episodeNum}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {dict.hero.characteristics.episode}
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">100+</div>
-                <div className="text-sm text-muted-foreground">Locations</div>
+                <div className="text-2xl font-bold text-accent">
+                  {dict.hero.characteristics.locationNum}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {dict.hero.characteristics.location}
+                </div>
               </div>
             </div>
           </div>

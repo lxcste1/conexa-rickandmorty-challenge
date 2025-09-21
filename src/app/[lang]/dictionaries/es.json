@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "title": "Explorá el Universo de <highlight>Rick & Morty</highlight>",
+    "description": "Compará personajes, descubrí episodios compartidos y navega por el multiverso de Rick y Morty.",
+    "callToAction": "Empezar a comparar personajes",
+    "characteristics": {
+      "characterNum": "800+",
+      "character": "Personajes",
+      "episodeNum": "50+",
+      "episode": "Episodios",
+      "locationNum": "100+",
+      "location": "Lugares"
+    }
+  },
+  "features": {
+    "title": "Descubrí las relaciones entre personajes",
+    "description": "Nuestro herramienta de comparación avanzada te ayuda a entender las relaciones entre personajes a través de sus episodios compartidos.",
+    "location": "Lugar",
+    "cards": {
+      "step1": {
+        "title": "Elegí el primer personaje",
+        "description": "Elegí un personaje para ver todos los episodios en los que aparece de forma individual."
+      },
+      "step2": {
+        "title": "Sumá un segundo personaje (opcional)",
+        "description": "Selecciona dos episodios y ve su información detallada de lado a lado."
+      },
+      "step3": {
+        "title": "Explorá las listas de episodios",
+        "description": "Explorá los episodios individuales y compartidos de los personajes seleccionados."
+      }
+    },
+    "callToAction": "Empezá tu viaje"
+  },
+  "compare": {
+    "title": "Comparación de personajes",
+    "description": "Compará personajes y descubrí sus episodios compartidos",
+    "character1": "Personaje #1",
+    "character2": "Personaje #2",
+    "selectedCharacters": "Personajes seleccionados",
+    "episodeSection1": {
+      "title": "Personaje #1 - Episodios individuales"
+    },
+    "episodeSection2": {
+      "title": "Personajes #1 y #2 - Episodios compartidos"
+    },
+    "episodeSection3": {
+      "title": "Personaje #2 - Episodios individuales"
+    },
+    "prompts": {
+      "selectBoth": "Seleccioná personajes para ver episodios compartidos",
+      "selectCharacter": "Seleccioná al Personaje #{n} para ver episodios"
+    },
+    "error": "No se pudieron cargar los episodios.",
+    "notFound": "No se encontraron episodios para esta selección"
+  }
+}

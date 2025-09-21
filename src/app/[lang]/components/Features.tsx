@@ -9,18 +9,20 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Sparkles, TvMinimalPlay, UserRoundPen } from "lucide-react";
+import { Langs } from "@/types";
+import { getDictionary } from "../dictionaries";
 
-function Features() {
+async function Features({ lang }: { lang: Langs }) {
+  const dict = await getDictionary(lang);
   return (
     <section className="py-20 bg-muted/30">
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Discover Character Connections
+            {dict.features.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Our advanced comparison tool helps you understand the relationships
-            between characters through their shared episodes.
+            {dict.features.description}
           </p>
         </div>
 
@@ -28,11 +30,10 @@ function Features() {
           <Card className="text-center border-0 justify-between">
             <CardHeader>
               <CardTitle className="text-secondary">
-                Character Comparison
+                {dict.features.cards.step1.title}
               </CardTitle>
               <CardDescription>
-                Select any two characters and see their detailed information
-                side by side.
+                {dict.features.cards.step1.description}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -45,11 +46,10 @@ function Features() {
           <Card className="text-center border-0 justify-between">
             <CardHeader>
               <CardTitle className="text-foreground">
-                Episode Analysis
+                {dict.features.cards.step2.title}
               </CardTitle>
               <CardDescription>
-                Discover which episodes feature your selected characters and
-                find their shared adventures.
+                {dict.features.cards.step2.description}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -61,10 +61,11 @@ function Features() {
 
           <Card className="text-center border-0 justify-between">
             <CardHeader>
-              <CardTitle className="text-link">Multiverse Explorer</CardTitle>
+              <CardTitle className="text-link">
+                {dict.features.cards.step3.title}
+              </CardTitle>
               <CardDescription>
-                Navigate through the vast Rick and Morty universe with our
-                intuitive interface.
+                {dict.features.cards.step3.description}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -81,7 +82,7 @@ function Features() {
             size="lg"
             className="text-secondary-foreground bg-secondary hover:bg-secondary/80"
           >
-            <Link href="/compare">Start Your Journey</Link>
+            <Link href={`/${lang}/compare`}>{dict.features.callToAction}</Link>
           </Button>
         </div>
       </div>

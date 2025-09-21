@@ -1,19 +1,27 @@
 "use client";
 
-import type { Character } from "@/types";
+import type { Character, Dictionary } from "@/types";
 import { useEpisodes } from "@/hooks/useEpisodes";
 import EpisodeCard from "@/components/features/EpisodeCard/EpisodeCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card } from "@/components/ui/card";
+import { fmt } from "@/i18n/fmt";
 
-type Props = {
+type EpisodeSectionProps = {
   title: string;
   character1: Character | null;
   character2: Character | null;
   type: "character1" | "shared" | "character2";
+  dict: Dictionary["compare"];
 };
 
-export function EpisodeSection({ title, character1, character2, type }: Props) {
+export function EpisodeSection({
+  title,
+  character1,
+  character2,
+  type,
+  dict,
+}: EpisodeSectionProps) {
   const { episodes, loading, error } = useEpisodes({
     type,
     character1,
@@ -26,16 +34,19 @@ export function EpisodeSection({ title, character1, character2, type }: Props) {
     (type === "shared" && !!character1 && !!character2);
 
   if (!shouldShow) {
+    const msg =
+      type === "shared"
+        ? dict.prompts.selectBoth
+        : fmt(dict.prompts.selectCharacter, {
+            n: type === "character1" ? 1 : 2,
+          });
+
     return (
       <div className="flex flex-col space-y-4">
         <h3 className="text-md font-semibold text-foreground">{title}</h3>
         <div className="m-1">
           <Card className="flex items-center justify-center text-center p-0 text-muted-foreground border-0 h-[62px]">
-            {type === "shared"
-              ? "Select both characters to see shared episodes"
-              : `Select ${
-                  type === "character1" ? "Character #1" : "Character #2"
-                } to see episodes`}
+            {msg}
           </Card>
         </div>
       </div>
@@ -64,7 +75,7 @@ export function EpisodeSection({ title, character1, character2, type }: Props) {
         <div className="text-center py-8 text-red-500">
           <div className="m-1">
             <Card className="flex items-center justify-center text-center p-0 text-muted-foreground border-0 h-[62px]">
-              Failed to load episodes.
+              {dict.error}
             </Card>
           </div>
         </div>
@@ -79,7 +90,7 @@ export function EpisodeSection({ title, character1, character2, type }: Props) {
         <div className="text-center text-muted-foreground">
           <div className="m-1">
             <Card className="flex items-center justify-center text-center p-0 text-muted-foreground border-0 h-[62px]">
-              No episodes found for this selection
+              {dict.notFound}
             </Card>
           </div>
         </div>

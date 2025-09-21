@@ -1,13 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { Character } from "@/types";
+import { Character, Dictionary } from "@/types";
 import { CharacterList } from "./components/CharacterList";
 import CharacterCard from "@/components/features/CharacterCard/CharacterCard";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { EpisodeSection } from "./components/EpisodeSection";
 
-function ComparePage() {
+interface ComparePageClientProps {
+  dict: Dictionary["compare"];
+}
+
+export default function ComparePageClient({ dict }: ComparePageClientProps) {
   const [character1, setCharacter1] = useState<Character | null>(null);
   const [character2, setCharacter2] = useState<Character | null>(null);
 
@@ -17,21 +21,19 @@ function ComparePage() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">
-            Character Comparison
+            {dict.title}
           </h1>
-          <p className="text-muted-foreground text-lg">
-            Compare characters and discover their shared episodes
-          </p>
+          <p className="text-muted-foreground text-lg">{dict.description}</p>
         </div>
         {/* Character Selection */}
         <section className="grid lg:grid-cols-2 gap-8 mb-12">
           <CharacterList
-            title="Character #1"
+            title={dict.character1}
             selectedCharacter={character1}
             onCharacterSelect={setCharacter1}
           />
           <CharacterList
-            title="Character #2"
+            title={dict.character2}
             selectedCharacter={character2}
             onCharacterSelect={setCharacter2}
           />
@@ -41,7 +43,7 @@ function ComparePage() {
           <section>
             <Card className="mb-8 px-4 mx-4 md:mx-0 bg-card rounded-lg border-0">
               <CardTitle className="text-xl font-semibold mb-4 text-card-foreground">
-                Selected Characters
+                {dict.selectedCharacters}
               </CardTitle>
               <CardContent className="grid md:grid-cols-2 gap-6 px-0">
                 {character1 && (
@@ -57,27 +59,28 @@ function ComparePage() {
         {/* Episodes Analysis */}
         <section className="grid lg:grid-cols-3 gap-8 px-4 md:px-0">
           <EpisodeSection
-            title="Character #1 - Only Episodes"
+            title={dict.episodeSection1.title}
             character1={character1}
             character2={character2}
             type="character1"
+            dict={dict}
           />
           <EpisodeSection
-            title="Character #1 & Character #2 - Shared Episodes"
+            title={dict.episodeSection2.title}
             character1={character1}
             character2={character2}
             type="shared"
+            dict={dict}
           />
           <EpisodeSection
-            title="Character #2 - Only Episodes"
+            title={dict.episodeSection3.title}
             character1={character1}
             character2={character2}
             type="character2"
+            dict={dict}
           />
         </section>
       </div>
     </div>
   );
 }
-
-export default ComparePage;

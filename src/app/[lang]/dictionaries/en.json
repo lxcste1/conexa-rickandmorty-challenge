@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "title": "Explore the <highlight>Rick & Morty</highlight> Universe",
+    "description": "Compare characters, discover shared episodes, and navigate the multiverse of Rick and Morty.",
+    "callToAction": "Start Comparing Characters",
+    "characteristics": {
+      "characterNum": "800+",
+      "character": "Characters",
+      "episodeNum": "50+",
+      "episode": "Episodes",
+      "locationNum": "100+",
+      "location": "Locations"
+    }
+  },
+  "features": {
+    "title": "Discover Character Connections",
+    "description": "Our advanced comparison tool helps you understand the relationships between characters through their shared episodes.",
+    "location": "Location",
+    "cards": {
+      "step1": {
+        "title": "Choose a Character",
+        "description": "Select a character to start the comparison."
+      },
+      "step2": {
+        "title": "Add a Second Character (Optional)",
+        "description": "Optionally add a second character to see which episodes they share."
+      },
+      "step3": {
+        "title": "Explore Episodes",
+        "description": "Explore the individual and shared episodes of the selected characters."
+      }
+    },
+    "callToAction": "Start Your Journey"
+  },
+  "compare": {
+    "title": "Character Comparison",
+    "description": "Compare characters and discover their shared episodes",
+    "character1": "Character #1",
+    "character2": "Character #2",
+    "selectedCharacters": "Selected Characters",
+    "episodeSection1": {
+      "title": "Character #1 - Only Episodes"
+    },
+    "episodeSection2": {
+      "title": "Characters #1 & #2 - Shared Episodes"
+    },
+    "episodeSection3": {
+      "title": "Character #2 - Only Episodes"
+    },
+    "prompts": {
+      "selectBoth": "Select both characters to see shared episodes",
+      "selectCharacter": "Select Character #{n} to see episodes"
+    },
+    "error": "Failed to load episodes.",
+    "notFound": "No episodes found for this selection."
+  }
+}
