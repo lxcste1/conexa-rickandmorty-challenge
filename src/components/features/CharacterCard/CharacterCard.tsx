@@ -20,6 +20,8 @@ function CharacterCard({
   onSelect,
   className,
 }: CharacterCardProps) {
+  const { image, name, status, species } = character;
+
   const hasLink = Boolean(onSelect);
 
   const containerClassNames = cx(
@@ -31,13 +33,10 @@ function CharacterCard({
 
   const statusClassNames = cx(
     "absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-white",
-    statusVariants({ status: character.status })
+    statusVariants({ status: status })
   );
 
-  const badgeClassNames = cx(
-    "text-xs",
-    statusVariants({ status: character.status })
-  );
+  const badgeClassNames = cx("text-xs", statusVariants({ status: status }));
 
   return (
     <Card
@@ -48,8 +47,8 @@ function CharacterCard({
         <div className="flex items-center space-x-4">
           <div className="relative">
             <Image
-              src={character.image || "/placeholder.png"}
-              alt={character.name}
+              src={image || "/placeholder.png"}
+              alt={name}
               className="w-16 h-16 rounded-full object-cover"
               width={64}
               height={64}
@@ -59,14 +58,14 @@ function CharacterCard({
 
           <div className="flex-1 min-w-0">
             <h3 className="font-semibold text-sm truncate text-card-foreground">
-              {character.name}
+              {name}
             </h3>
             <div className="flex flex-wrap gap-1 mt-2">
               <Badge data-testid="status-badge" className={badgeClassNames}>
-                {character.status}
+                {status}
               </Badge>
               <Badge variant="outline" className="text-xs">
-                {character.species}
+                {species}
               </Badge>
             </div>
           </div>
