@@ -17,10 +17,10 @@ function Footer() {
               Rick and Morty API
             </Link>
           </p>
-          <p className="text-xs text-gray-500 mt-2">
+          <p className="text-xs text-secondary-foreground mt-2">
             © 2025 Conexa Challenge | Rick & Morty Character Comparison App
           </p>
-          <p className="text-xs text-gray-500 mt-2">
+          <p className="text-xs text-secondary-foreground mt-2">
             Developed by{" "}
             <Link
               href={"https://www.linkedin.com/in/tellolucas/"}

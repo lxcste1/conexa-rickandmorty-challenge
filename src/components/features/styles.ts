@@ -3,9 +3,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 export const statusVariants = cva("", {
   variants: {
     status: {
-      Alive: "bg-green-500",
-      Dead: "bg-red-500",
-      unknown: "bg-gray-500",
+      Alive: "bg-secondary text-secondary-foreground",
+      Dead: "bg-red-600 text-secondary-foreground",
+      unknown: "bg-gray-500 text-secondary-foreground",
     },
   },
   defaultVariants: {

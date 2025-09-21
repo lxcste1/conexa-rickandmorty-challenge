@@ -10,9 +10,9 @@
   --popover-foreground: #3d373c;
 
   --primary: #8bcf21;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #3d373c;
 
-  --secondary: #2f9331;
+  --secondary: #257527;
   --secondary-foreground: #ffffff;
 
   --muted: #e5d29f;
@@ -22,11 +22,14 @@
   --accent-foreground: #3d373c;
 
   --destructive: #c19978;
-  --destructive-foreground: #ffffff;
+  --destructive-foreground: #2b2328;
 
   --border: #e7e0db;
   --input: #f3f4f6;
   --ring: rgba(139, 207, 33, 0.5);
+
+  --link: #416972;
+  --link-hover: #2d494f;
 
   --chart-1: #8bcf21;
   --chart-2: #2f9331;
@@ -68,6 +71,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
