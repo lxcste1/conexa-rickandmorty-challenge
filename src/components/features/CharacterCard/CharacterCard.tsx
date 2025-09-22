@@ -3,7 +3,6 @@ import { cx } from "class-variance-authority";
 import { Character } from "@/types";
 import { Card, CardContent } from "../../ui/card";
 import { Badge } from "../../ui/badge";
-import { Button } from "../../ui/button";
 import { statusVariants, type StatusVariantsProps } from "../styles";
 import Image from "next/image";
 
