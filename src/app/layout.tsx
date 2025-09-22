@@ -1,9 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import Header from "@/components/common/Header/Header";
 import Footer from "@/components/common/Footer/Footer";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,8 +16,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://conexa-challenge.vercel.app/"),
   title: "Conexa Challenge - Rick and Morty",
   description: "Conexa Challenge - Rick and Morty",
+  openGraph: {
+    images: "/rickandmorty-portal.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: "/rickandmorty-portal.png",
+  },
 };
 
 export default function RootLayout({

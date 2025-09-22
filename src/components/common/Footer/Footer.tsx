@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-5xl mx-auto px-4 py-8">
@@ -18,7 +20,8 @@ function Footer() {
             </Link>
           </p>
           <p className="text-xs text-secondary-foreground mt-2">
-            © 2025 Conexa Challenge | Rick & Morty Character Comparison App
+            © {currentYear} Conexa Challenge | Rick & Morty Character Comparison
+            App
           </p>
           <p className="text-xs text-secondary-foreground mt-2">
             Developed by{" "}
